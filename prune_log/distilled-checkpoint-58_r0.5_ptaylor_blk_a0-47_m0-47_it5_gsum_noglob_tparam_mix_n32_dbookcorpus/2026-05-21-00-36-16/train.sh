@@ -1,0 +1,1 @@
+python main_prune.py base_model=/mnt/foxbrain-omni-distillation/academia_sinica/distill/out/meta-llama-Llama-3.2-3B-Instruct_gsm8k_e1_l05_b03_lr1e6/checkpoint-58/ model_type=llama pruning_ratio=0.5 dataset=bookcorpus

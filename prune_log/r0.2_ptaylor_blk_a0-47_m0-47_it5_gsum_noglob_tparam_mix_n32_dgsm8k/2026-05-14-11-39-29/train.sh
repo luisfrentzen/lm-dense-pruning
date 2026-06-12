@@ -1,0 +1,1 @@
+python main_prune.py pruning_ratio=0.2 dataset=gsm8k

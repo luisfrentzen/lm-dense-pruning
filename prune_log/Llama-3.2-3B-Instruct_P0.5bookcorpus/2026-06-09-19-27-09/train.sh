@@ -1,0 +1,1 @@
+python main_prune.py base_model=/mnt/Model-Weights/meta-llama/Llama-3.2-3B-Instruct model_type=llama pruning_ratio=0.5 dataset=bookcorpus loss_type=gold gold_beta=0.5 gold_temperature=0.9

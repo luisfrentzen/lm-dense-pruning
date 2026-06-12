@@ -1,0 +1,1 @@
+python main_prune.py base_model=/mnt/foxbrain-omni-distillation/academia_sinica/distill/out_seq/llama_Kalpaca model_type=llama pruning_ratio=0.3 dataset=gsm8k

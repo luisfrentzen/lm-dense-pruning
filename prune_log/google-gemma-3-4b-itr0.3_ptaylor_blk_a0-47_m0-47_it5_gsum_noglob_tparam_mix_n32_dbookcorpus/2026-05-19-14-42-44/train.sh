@@ -1,0 +1,1 @@
+python main_prune.py base_model=/mnt/Model-Weights/google/gemma-3-4b-it pruning_ratio=0.3 dataset=bookcorpus

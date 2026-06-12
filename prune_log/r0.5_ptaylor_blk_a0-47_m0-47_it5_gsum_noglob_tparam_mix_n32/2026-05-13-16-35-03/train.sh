@@ -1,0 +1,1 @@
+python main_prune.py base_model=/mnt/Model-Weights/meta-llama/gemma-3-12b-it pruning_ratio=0.5

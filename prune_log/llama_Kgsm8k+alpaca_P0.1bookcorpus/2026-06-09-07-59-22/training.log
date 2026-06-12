@@ -1,0 +1,15 @@
+2026-06-09 07:59:23 - INFO :       Use taylor pruner...
+2026-06-09 07:59:23 - INFO :       Pruning Attention Layer = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27]
+2026-06-09 07:59:23 - INFO :       Pruning MLP Layer = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27]
+2026-06-09 07:59:24 - INFO :       Start Pruning
+2026-06-09 07:59:25 - INFO :       Start Backwarding in iterative steps = 0...
+2026-06-09 07:59:30 - INFO :       Loss = 4.016118049621582
+2026-06-09 07:59:43 - INFO :       After Iter 1/1, #parameters: 3001150464
+2026-06-09 07:59:43 - INFO :       #Text Param before: 3212749824, #Text Param after: 3001150464, Ratio = 93.4138%
+2026-06-09 07:59:45 - INFO :       gcc -pthread -B /mnt/foxbrain-omni-distillation/academia_sinica/envs/vllm/compiler_compat -DNDEBUG -fwrapv -O2 -Wall -fPIC -O2 -isystem /mnt/foxbrain-omni-distillation/academia_sinica/envs/vllm/include -fPIC -O2 -isystem /mnt/foxbrain-omni-distillation/academia_sinica/envs/vllm/include -fPIC -c /tmp/tmpoir2aq0s/test.c -o /tmp/tmpoir2aq0s/test.o
+2026-06-09 07:59:45 - INFO :       gcc -pthread -B /mnt/foxbrain-omni-distillation/academia_sinica/envs/vllm/compiler_compat /tmp/tmpoir2aq0s/test.o -laio -o /tmp/tmpoir2aq0s/a.out
+2026-06-09 07:59:45 - INFO :       gcc -pthread -B /mnt/foxbrain-omni-distillation/academia_sinica/envs/vllm/compiler_compat -DNDEBUG -fwrapv -O2 -Wall -fPIC -O2 -isystem /mnt/foxbrain-omni-distillation/academia_sinica/envs/vllm/include -fPIC -O2 -isystem /mnt/foxbrain-omni-distillation/academia_sinica/envs/vllm/include -fPIC -c /tmp/tmpigsuznyj/test.c -o /tmp/tmpigsuznyj/test.o
+2026-06-09 07:59:45 - INFO :       gcc -pthread -B /mnt/foxbrain-omni-distillation/academia_sinica/envs/vllm/compiler_compat /tmp/tmpigsuznyj/test.o -L/usr/local/cuda -L/usr/local/cuda/lib64 -lcufile -o /tmp/tmpigsuznyj/a.out
+2026-06-09 07:59:45 - INFO :       gcc -pthread -B /mnt/foxbrain-omni-distillation/academia_sinica/envs/vllm/compiler_compat -DNDEBUG -fwrapv -O2 -Wall -fPIC -O2 -isystem /mnt/foxbrain-omni-distillation/academia_sinica/envs/vllm/include -fPIC -O2 -isystem /mnt/foxbrain-omni-distillation/academia_sinica/envs/vllm/include -fPIC -c /tmp/tmpeps8cpwz/test.c -o /tmp/tmpeps8cpwz/test.o
+2026-06-09 07:59:45 - INFO :       gcc -pthread -B /mnt/foxbrain-omni-distillation/academia_sinica/envs/vllm/compiler_compat /tmp/tmpeps8cpwz/test.o -laio -o /tmp/tmpeps8cpwz/a.out
+2026-06-09 08:00:15 - INFO :       Memory Requirement: 0.00 MiB

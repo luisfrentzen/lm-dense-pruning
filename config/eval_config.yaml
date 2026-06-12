@@ -1,0 +1,93 @@
+# directory that contains model folders to evaluate
+# example:
+#   "./pruned_models_custom_taylor"
+root_dir: "./test_pruned_models_uniform"
+
+# evaluation tasks for lm-eval
+# examples:
+#   - "mmlu"
+#   - "gsm8k"
+#   - "arc_challenge"
+#   - "hellaswag"
+tasks:
+  # - "mmlu"
+  - "arc_easy"
+  - "arc_challenge"
+  - "piqa"
+  # - "gsm8k"
+  # - "hellaswag"
+  # - "winogrande"
+
+# target device for single-device loading
+# possible values:
+#   "cuda:0"
+#   "cuda:1"
+#   "cpu"
+device: "cuda:0"
+
+# model dtype
+# possible values:
+#   "float32"
+#   "fp32"
+#   "float16"
+#   "fp16"
+#   "bfloat16"
+#   "bf16"
+dtype: "bfloat16"
+
+# batch size for lm-eval
+# possible values:
+#   "auto"
+#   1
+#   2
+#   4
+#   8
+batch_size: "auto"
+
+# upper limit used when batch_size="auto"
+# possible values: any positive integer
+# examples: 8, 16, 32, 64
+max_batch_size: 64
+
+# output files
+# examples:
+#   "./eval_out/all_results.json"
+#   "./eval_out/all_results_taylor.json"
+output_json: "./eval_out_uniform/all_results.json"
+output_csv: "./eval_out_uniform/all_results.csv"
+
+# enable multi-GPU loading path
+# possible values:
+#   true
+#   false
+# note:
+#   current refactored eval flow is safest with false first
+use_multi_gpu: false
+
+# number of GPUs to use
+# possible values:
+#   null   -> use all visible GPUs
+#   1
+#   2
+#   4
+gpus: null
+
+# per-GPU memory cap for multi-GPU loading
+# possible values:
+#   null
+#   "20GiB"
+#   "40GiB"
+#   "46GiB"
+max_memory_per_gpu: null
+
+# CPU RAM cap for offloading
+# possible values:
+#   null
+#   "60GiB"
+#   "120GiB"
+max_cpu_memory: null
+
+# folder for HF offload files
+# example:
+#   "./offload"
+offload_folder: "./offload"

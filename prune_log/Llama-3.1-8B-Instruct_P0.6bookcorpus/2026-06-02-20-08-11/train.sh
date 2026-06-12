@@ -1,0 +1,1 @@
+python main_prune.py base_model=/mnt/Model-Weights/meta-llama/Llama-3.1-8B-Instruct model_type=llama pruning_ratio=0.6 dataset=bookcorpus

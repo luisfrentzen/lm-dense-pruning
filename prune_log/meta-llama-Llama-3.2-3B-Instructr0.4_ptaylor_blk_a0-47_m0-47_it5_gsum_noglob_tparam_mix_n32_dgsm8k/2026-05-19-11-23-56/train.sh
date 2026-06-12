@@ -1,0 +1,1 @@
+python main_prune.py base_model=/mnt/Model-Weights/meta-llama/Llama-3.2-3B-Instruct pruning_ratio=0.4 dataset=gsm8k

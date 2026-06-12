@@ -1,0 +1,1 @@
+python main_prune.py base_model=/mnt/foxbrain-omni-distillation/academia_sinica/distill/out/llama_Kgsm8k+alpaca model_type=llama pruning_ratio=0.1 dataset=bookcorpus

@@ -1,0 +1,60 @@
+# base model path
+# safer if absolute path
+base_model: "/mnt/Model-Weights/google/gemma-3-4b-it"
+model_type: "gemma3"
+
+# output folder for pruned checkpoints
+save_dir: "/mnt/foxbrain-omni-distillation/academia_sinica/pruning/out_fixed"
+dataset: "bookcorpus"
+
+# pruning setting
+pruning_ratio: 0.1
+pruner_type: "taylor"   # random | l1 | l2 | taylor
+
+# enable exactly one mode
+channel_wise: false
+block_wise: true
+layer_wise: false
+
+# used only when layer_wise=true
+# keep layers [0, layer-1]
+layer: 24
+
+# used only when block_wise=true
+# end is exclusive
+block_attention_layer_start: 0
+block_attention_layer_end: 48
+block_mlp_layer_start: 0
+block_mlp_layer_end: 48
+
+# pruning control
+iterative_steps: 1
+grouping_strategy: "sum"   # sum | mean | max | prod | first
+global_pruning: false
+
+# used only when pruner_type=taylor
+taylor: "param_first"      # vectorize | param_second | param_first | param_mix
+num_examples: 32
+loss_type: "clm"           # clm | gold
+# gold off-policy distillation loss (used only when loss_type=gold)
+# reuses trl.experimental.gold GOLDTrainer.generalized_jsd_loss
+# teacher_model: separate model providing target distributions (must share the
+# student tokenizer/vocab, e.g. a larger same-family checkpoint)
+teacher_model: "/mnt/Model-Weights/google/gemma-3-12b-it"
+gold_beta: 0.5             # JSD interpolation: 0=KL(teacher||student), 1=reverse KL
+gold_temperature: 0.9      # softmax temperature for the JSD loss
+# set true when teacher and student use DIFFERENT tokenizers (e.g. gemma teacher +
+# llama student): uses GOLD's ULD loss to align the mismatched vocabularies.
+# false uses the plain JSD loss and requires a shared tokenizer/vocab.
+gold_use_uld: true
+
+# generation / save setting
+test_before_train: false
+test_after_train: false
+seed: 42
+save_model: true
+
+# generation setting
+temperature: 1.0
+top_p: 0.95
+max_seq_len: 128

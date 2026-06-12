@@ -1,0 +1,1 @@
+python main_prune.py base_model=/mnt/foxbrain-omni-distillation/academia_sinica/distill/out/google-gemma-3-4b-it_gsm8k_e1_l05_b03_lr1e6/checkpoint-58/ model_type=gemma3 pruning_ratio=0.1 dataset=bookcorpus+gsm8k
