@@ -11,7 +11,9 @@
       "Read(//mnt/Model-Weights/google/gemma-3-12b-it/**)",
       "Read(//mnt/Model-Weights/meta-llama/Llama-3.1-8B-Instruct/**)",
       "Bash(sed -n '/def get_torch_dtype/,/^def /p' core/utils.py)",
-      "Bash(sed -n '/def load_base_model_and_tokenizer/,/return model, tokenizer/p' adapters/llama_adapter.py)"
+      "Bash(sed -n '/def load_base_model_and_tokenizer/,/return model, tokenizer/p' adapters/llama_adapter.py)",
+      "Bash(/mnt/foxbrain-omni-distillation/academia_sinica/envs/vllm/bin/python -c \"import importance_analysis as ia; print\\('package OK | metrics:', ia.list_metrics\\(\\)\\)\")",
+      "Bash(/mnt/foxbrain-omni-distillation/academia_sinica/envs/vllm/bin/python -m importance_analysis.run --help)"
     ]
   }
 }

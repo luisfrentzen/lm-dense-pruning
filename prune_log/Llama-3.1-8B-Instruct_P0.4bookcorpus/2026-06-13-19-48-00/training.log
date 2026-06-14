@@ -1,0 +1,12 @@
+2026-06-13 19:48:16 - INFO :       Captured pre-prune structure fingerprints for mapping
+2026-06-13 19:48:16 - INFO :       Use taylor pruner...
+2026-06-13 19:48:16 - INFO :       Pruning Attention Layer = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31]
+2026-06-13 19:48:16 - INFO :       Pruning MLP Layer = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31]
+2026-06-13 19:48:19 - INFO :       Start Pruning
+2026-06-13 19:48:20 - INFO :       Start Backwarding in iterative steps = 0...
+2026-06-13 19:48:34 - INFO :       Loss = 3.8098936080932617
+2026-06-13 19:49:15 - INFO :       After Iter 1/1, #parameters: 5249830912
+2026-06-13 19:49:15 - INFO :       #Text Param before: 7504924672, #Text Param after: 5249830912, Ratio = 69.9518%
+2026-06-13 19:49:20 - INFO :       gcc -pthread -B /mnt/foxbrain-omni-distillation/academia_sinica/envs/vllm/compiler_compat -DNDEBUG -fwrapv -O2 -Wall -fPIC -O2 -isystem /mnt/foxbrain-omni-distillation/academia_sinica/envs/vllm/include -fPIC -O2 -isystem /mnt/foxbrain-omni-distillation/academia_sinica/envs/vllm/include -fPIC -c /tmp/tmp5353a48w/test.c -o /tmp/tmp5353a48w/test.o
+2026-06-13 19:49:20 - INFO :       gcc -pthread -B /mnt/foxbrain-omni-distillation/academia_sinica/envs/vllm/compiler_compat /tmp/tmp5353a48w/test.o -laio -o /tmp/tmp5353a48w/a.out
+2026-06-13 19:50:21 - INFO :       Saved structure map (pruned->unpruned indices) to /mnt/foxbrain-omni-distillation/academia_sinica/pruning/out_analysis/Llama-3.1-8B-Instruct_P0.4bookcorpus/structure_map.json

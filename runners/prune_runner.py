@@ -53,6 +53,7 @@ class PruneRunner:
         self.teacher_tokenizer = None
         self._gold_jsd = None
         self._uld_loss_fn = None
+        self._structure_fingerprints = None
         self.adapter = None
         self._attention_cls = None
         self._rmsnorm_cls = None
@@ -572,6 +573,26 @@ class PruneRunner:
             )
         )
 
+    def capture_structure_fingerprints(self):
+        # Record-at-prune-time mapping: fingerprint the UNPRUNED structures before any
+        # channels are removed. Resolved against the pruned model in save_structure_map.
+        if not self.cfg.record_structure_map:
+            return
+        from importance_analysis.mapping import fingerprint_structures
+        self._structure_fingerprints = fingerprint_structures(self.model, self.adapter)
+        self.logger.log("Captured pre-prune structure fingerprints for mapping")
+
+    def save_structure_map(self):
+        if not self.cfg.record_structure_map or self._structure_fingerprints is None:
+            return
+        from importance_analysis.mapping import resolve_kept_indices, save_mapping
+        mapping = resolve_kept_indices(self.model, self.adapter, self._structure_fingerprints)
+        save_dir = os.path.join(self.cfg.save_dir, self.run_name)
+        os.makedirs(save_dir, exist_ok=True)
+        path = os.path.join(save_dir, "structure_map.json")
+        save_mapping(mapping, path)
+        self.logger.log(f"Saved structure map (pruned->unpruned indices) to {path}")
+
     def save_model(self):
         if not self.cfg.save_model:
             return
@@ -655,6 +676,8 @@ class PruneRunner:
         show_step("Step 2/8: test_generation_before_pruning")
         self.test_generation_before_pruning()
 
+        self.capture_structure_fingerprints()
+
         show_step("Step 3/8: prune")
         self.prune()
 
@@ -663,6 +686,7 @@ class PruneRunner:
 
         show_step("Step 5/8: save_model")
         self.save_model()
+        self.save_structure_map()
 
         show_step("Step 6/8: prepare_for_eval")
         self.prepare_for_eval()

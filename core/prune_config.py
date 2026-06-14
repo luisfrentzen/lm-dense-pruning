@@ -44,6 +44,8 @@ class PruneConfig:
     gold_temperature: float
     gold_use_uld: bool   # True: cross-tokenizer ULD loss; False: same-tokenizer JSD
 
+    record_structure_map: bool  # dump pruned->unpruned index sidecar for importance analysis
+
     temperature: float
     top_p: float
     max_seq_len: int
@@ -91,6 +93,7 @@ class PruneConfig:
             gold_beta=float(cfg.get("gold_beta", 0.5)),
             gold_temperature=float(cfg.get("gold_temperature", 0.9)),
             gold_use_uld=bool(cfg.get("gold_use_uld", False)),
+            record_structure_map=bool(cfg.get("record_structure_map", False)),
             temperature=float(cfg.get("temperature", 1.0)),
             top_p=float(cfg.get("top_p", 0.95)),
             max_seq_len=int(cfg.get("max_seq_len", 128)),

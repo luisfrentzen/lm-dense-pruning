@@ -48,6 +48,10 @@ gold_temperature: 0.9      # softmax temperature for the JSD loss
 # false uses the plain JSD loss and requires a shared tokenizer/vocab.
 gold_use_uld: true
 
+# write a pruned->unpruned structure-index sidecar (structure_map.json) next to the
+# checkpoint, for importance_analysis. Exact + survives later recovery/distillation.
+record_structure_map: true
+
 # generation / save setting
 test_before_train: false
 test_after_train: false
